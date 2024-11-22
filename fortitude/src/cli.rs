@@ -31,6 +31,7 @@ pub struct GlobalConfigArgs {
 pub enum SubCommands {
     Check(CheckArgs),
     Explain(ExplainArgs),
+    Format(FormatArgs),
 }
 
 /// Get descriptions, rationales, and solutions for each rule.
@@ -97,4 +98,18 @@ pub struct CheckArgs {
     /// The default serialization format is "full".
     #[arg(long, value_enum, env = "FORTITUDE_OUTPUT_FORMAT")]
     pub output_format: Option<OutputFormat>,
+}
+
+/// EXPERIMENTAL! Format files, printing to stdout
+#[derive(Debug, clap::Parser, Deserialize, Serialize, Clone, PartialEq, Eq)]
+#[serde(deny_unknown_fields, rename_all = "kebab-case")]
+pub struct FormatArgs {
+    /// List of files or directories to format. Directories are searched recursively for
+    /// Fortran files. The `--file-extensions` option can be used to control which files
+    /// are included in the search.
+    #[arg(default_value = ".")]
+    pub files: Option<Vec<PathBuf>>,
+    /// File extensions to format
+    #[arg(long, value_delimiter = ',', default_values = FORTRAN_EXTS)]
+    pub file_extensions: Option<Vec<String>>,
 }

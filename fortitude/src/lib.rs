@@ -2,6 +2,7 @@ mod ast;
 pub mod check;
 pub mod cli;
 pub mod explain;
+pub mod format;
 mod fs;
 mod message;
 mod printer;

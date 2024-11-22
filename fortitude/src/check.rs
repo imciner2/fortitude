@@ -204,7 +204,7 @@ fn filter_fortran_extensions<S: AsRef<str>>(path: &Path, extensions: &[S]) -> bo
 }
 
 /// Expand the input list of files to include all Fortran files.
-fn get_files<S: AsRef<str>>(files_in: &Vec<PathBuf>, extensions: &[S]) -> Vec<PathBuf> {
+pub(crate) fn get_files<S: AsRef<str>>(files_in: &Vec<PathBuf>, extensions: &[S]) -> Vec<PathBuf> {
     let mut paths = Vec::new();
     for path in files_in {
         if path.is_dir() {

@@ -44,7 +44,9 @@ strum_macros = { workspace = true }
 textwrap = "0.16.0"
 thiserror = { version = "1.0.58" }
 toml = "0.8.19"
-tree-sitter = "~0.23.0"
+topiary-core = { git = "https://github.com/tweag/topiary.git", rev = "0f4a5f17ba50c785621f6a68eeb082464cd9bdfa" }
+topiary-tree-sitter-facade = { git = "https://github.com/tweag/topiary.git", rev = "0f4a5f17ba50c785621f6a68eeb082464cd9bdfa" }
+tree-sitter = "~0.24"
 tree-sitter-fortran = "0.2.0"
 walkdir = "2.4.0"
 
